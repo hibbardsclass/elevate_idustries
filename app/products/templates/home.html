@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Our Store</h1>
+    <p>Explore our products and find what you need.</p>
+    <a href="{{ url_for('products.list_products') }}" class="button">View Products</a>
+    <a href="{{ url_for('products.add_product') }}" class="button">Add Product</a> <!-- Corrected from add_products to add_product -->
+{% endblock %}

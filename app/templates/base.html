@@ -11,20 +11,22 @@
         <div class="container">
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Main Home</a></li>
+                    <li><a href="{{ url_for('products.home') }}">Product Home</a></li>
                     <li class="dropdown">
                     <a href="#" class="dropbtn">Our CTE's</a>
                     <div class="dropdown-content">
-                        <a href="{{ url_for('business') }}">Business</a>
-                        <a href="{{ url_for('website_design') }}">Website Design</a>
-                        <a href="{{ url_for('construction') }}">Construction</a>
+                        <a href="{{ url_for('main.business') }}">Business</a>
+                        <a href="{{ url_for('main.website_design') }}">Website Design</a>
+                        <a href="{{ url_for('main.construction') }}">Construction</a>
+
 
                     </div>
                     </li>
 
-                    <li><a href="{{ url_for('about') }}">About Us</a></li>
-                    <li><a href="{{ url_for('shop') }}">Shop</a></li>
-                    <li><a href="{{ url_for('blog') }}">Blog</a></li> <!-- Added Blog link -->
+                    <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('main.shop') }}">Shop</a></li>
+                    <li><a href="{{ url_for('main.blog') }}">Blog</a></li> <!-- Added Blog link -->
                 </ul>
             </nav>
         </div>

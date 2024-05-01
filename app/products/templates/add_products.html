@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Add Products{% endblock %}
+
+{% block content %}
+    <h1>Add New Product</h1>
+    <form action="{{ url_for('products.add_product') }}" method="POST">
+        <label>Name:
+            <input type="text" name="name" placeholder="Name" required>
+        </label>
+        <label>Description:
+            <input type="text" name="description" placeholder="Description">
+        </label>
+        <label>Price:
+            <input type="number" name="price" placeholder="Price" step="0.01" required>
+        </label>
+        <label>CTE Program:
+            <select name="cte_program" required>
+                <option value="Culinary">Culinary</option>
+                <option value="Business">Business</option>
+                <option value="Computer Programming">Computer Programming</option>
+                <option value="Public Safety">Public Safety</option>
+                <option value="Ag Mechanics">Ag Mechanics</option>
+                <option value="Welding">Welding</option>
+                <option value="Construction">Construction</option>
+                <option value="Medical">Medical</option>
+            </select>
+        </label>
+        <button type="submit" class="button add-button">Add Product</button>
+    </form>
+{% endblock %}
