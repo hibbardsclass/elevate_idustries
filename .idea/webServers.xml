@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="443c4469-7883-4da4-8e50-458dd35b3d7d" name="pythonanywhere">
+        <fileTransfer rootFolder="/home/rhibbard/" accessType="SFTP" host="ssh.pythonanywhere.com" port="22" sshConfigId="32d9f961-5d47-4c24-ae72-0e58c956d49a" sshConfig="rhibbard@ssh.pythonanywhere.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
