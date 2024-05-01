@@ -28,4 +28,50 @@
         </label>
         <button type="submit" class="button add-button">Add Product</button>
     </form>
+
+     <!-- Display existing products with update and delete options -->
+    <h2>Existing Products</h2>
+    <ul>
+        {% for product in products %}
+            <li class="product-item">
+                <h3>{{ product.name }}</h3>
+                <p>Description: {{ product.description }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <p>CTE Program: {{ product.cte_program }}</p>
+                <!-- Form for updating the product -->
+                <form action="{{ url_for('products.update_product', id=product.id) }}" method="post">
+                    <label>
+                        <input type="text" name="name" placeholder="New Name" required>
+                    </label>
+                    <label>
+                        <input type="text" name="description" placeholder="New Description">
+                    </label>
+                    <label>
+                        <input type="number" name="price" placeholder="New Price" step="0.01" required>
+                    </label>
+                    <label>
+                        <!-- Dropdown menu for CTE programs -->
+                        <select name="cte_program" required>
+                            <option value="Culinary">Culinary</option>
+                            <option value="Business">Business</option>
+                            <option value="Computer Programming">Computer Programming</option>
+                            <option value="Public Safety">Public Safety</option>
+                            <option value="Ag Mechanics">Ag Mechanics</option>
+                            <option value="Welding">Welding</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Medical">Medical</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="button update-button">Update</button>
+                </form>
+                <!-- Form for deleting the product -->
+                <form action="{{ url_for('products.delete_product', id=product.id) }}" method="post">
+                    <button type="submit" class="button delete-button">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Link back to home page -->
+    <a href="{{ url_for('main.shop') }}">Back to Home</a>
 {% endblock %}
