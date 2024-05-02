@@ -1,0 +1,82 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333; /* Changed text color */
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 36px;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #800080; /* Purple background */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none; /* Removed button border */
+}
+
+.button:hover {
+    background-color: #660066; /* Darker purple on hover */
+}
+
+/* Product Item Styles */
+.product-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-item h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.product-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Delete Button Styles */
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Update Button Styles */
+.update-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Add Button Styles */
+.add-button {
+    background-color: #28a745;
+    color: #fff;
+}

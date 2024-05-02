@@ -11,6 +11,7 @@ def list_products():
     product_list = Product.query.all()  # Changed variable name to avoid conflict
     return render_template('list_products.html', products=product_list)
 
+
 @products.route('/add', methods=['GET', 'POST'])
 def add_product():
     if request.method == 'POST':
@@ -27,8 +28,14 @@ def add_product():
             return redirect(url_for('products.list_products'))
         except Exception as e:
             flash(f'Error adding product: {e}', 'error')
-            return redirect(url_for('products.add_product'))
-    return render_template('add_products.html')
+            # Ensure to fetch products again in case of error to display them in the template
+            products = Product.query.all()
+            return render_template('add_products.html', products=products)
+
+    # Fetch products for GET request and initial page load
+    products = Product.query.all()
+    return render_template('add_products.html', products=products)
+
 
 @products.route('/update/<int:id>', methods=['GET', 'POST'])
 def update_product(id):
