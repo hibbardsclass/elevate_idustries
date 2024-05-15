@@ -5,7 +5,7 @@ def list_directory_structure(startpath):
     structure = []
     for root, dirs, files in os.walk(startpath, topdown=True):
         # Exclude .venv and .git or other specific directories
-        dirs[:] = [d for d in dirs if d not in ['.venv', '.git', '.idea']]
+        dirs[:] = [d for d in dirs if d not in ['.venv', '.git', '.idea', 'migrations']]
         level = root.replace(startpath, '').count(os.sep)
         indent = ' ' * 4 * (level)
         structure.append(f"{indent}{os.path.basename(root)}/")
