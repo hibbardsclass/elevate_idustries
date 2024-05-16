@@ -27,6 +27,14 @@
                     <li><a href="{{ url_for('main.about') }}">About Us</a></li>
                     <li><a href="{{ url_for('main.shop') }}">Shop</a></li>
                     <li><a href="{{ url_for('main.blog') }}">Blog</a></li> <!-- Added Blog link -->
+
+                    <!-- Add Registration/Login Links -->
+                    {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

@@ -30,6 +30,9 @@ def create_app(config_class=Config):
     # Initialize Flask-Principal
     principals = Principal(app)
 
+    from app.auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix='/auth')
+
     from app.products import products as products_blueprint
     app.register_blueprint(products_blueprint, url_prefix='/products')
 

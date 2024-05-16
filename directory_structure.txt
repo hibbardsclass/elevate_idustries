@@ -2,11 +2,15 @@
     config.py
     directory_structure.py
     directory_structure.txt
+    requirements.txt
     run.py
     app/
         models.py
         routes.py
         __init__.py
+        auth/
+            forms.py
+            routes.py
         products/
             routes.py
             __init__.py
@@ -35,6 +39,8 @@
             shop.html
             Sign-in.html
             website_design.html
+            auth/
+                register.html
         __pycache__/
             models.cpython-312.pyc
             routes.cpython-312.pyc
