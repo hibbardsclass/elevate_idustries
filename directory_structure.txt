@@ -5,12 +5,18 @@
     requirements.txt
     run.py
     app/
+        admin.py
         models.py
         routes.py
         __init__.py
         auth/
             forms.py
             routes.py
+            __init__.py
+            __pycache__/
+                forms.cpython-312.pyc
+                routes.cpython-312.pyc
+                __init__.cpython-312.pyc
         products/
             routes.py
             __init__.py
@@ -40,6 +46,7 @@
             Sign-in.html
             website_design.html
             auth/
+                login.html
                 register.html
         __pycache__/
             models.cpython-312.pyc

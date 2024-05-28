@@ -27,9 +27,17 @@
                     <li><a href="{{ url_for('main.about') }}">About Us</a></li>
                     <li><a href="{{ url_for('main.shop') }}">Shop</a></li>
                     <li><a href="{{ url_for('main.blog') }}">Blog</a></li> <!-- Added Blog link -->
-
-                    <!-- Add Registration/Login Links -->
+                    <!-- Orders Dropdown Menu -->
                     {% if current_user.is_authenticated %}
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Orders</a>
+                            <div class="dropdown-content">
+                                <a href="{{ url_for('orders.place_order') }}">Place Order</a>
+                                <a href="{{ url_for('orders.my_orders') }}">My Orders</a>
+                            </div>
+                        </li>
+                    <!-- Add Registration/Login Links -->
+
                         <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('auth.register') }}">Register</a></li>

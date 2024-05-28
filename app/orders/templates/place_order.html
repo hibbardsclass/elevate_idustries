@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Place Order{% endblock %}
+
+{% block content %}
+<h1>Place Order</h1>
+<form method="POST" action="{{ url_for('orders.place_order') }}">
+    <label>Shipping Details:</label>
+    <textarea name="shipping_details" required></textarea>
+    <h2>Products</h2>
+    {% for product in products %}
+        <div>
+            <input type="checkbox" name="item_ids" value="{{ product.id }}">
+            <span>{{ product.name }} - ${{ product.price }}</span>
+            <input type="hidden" name="price_{{ product.id }}" value="{{ product.price }}">
+            <input type="number" name="quantity_{{ product.id }}" placeholder="Quantity" min="1">
+        </div>
+    {% endfor %}
+    <button type="submit">Place Order</button>
+</form>
+{% endblock %}
