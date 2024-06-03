@@ -6,6 +6,7 @@
     run.py
     app/
         admin.py
+        commands.py
         models.py
         routes.py
         __init__.py
@@ -15,6 +16,16 @@
             __init__.py
             __pycache__/
                 forms.cpython-312.pyc
+                routes.cpython-312.pyc
+                __init__.cpython-312.pyc
+        orders/
+            routes.py
+            __init__.py
+            templates/
+                my_orders.html
+                order_detail.html
+                place_order.html
+            __pycache__/
                 routes.cpython-312.pyc
                 __init__.cpython-312.pyc
         products/

@@ -8,6 +8,7 @@ from flask_principal import Principal, Permission, RoleNeed
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 
+
 db = SQLAlchemy()
 migrate = Migrate()
 
@@ -38,10 +39,14 @@ def create_app(config_class=Config):
     customer_permission = Permission(RoleNeed('customer'))
 
     # Initialize Flask-Admin
-    from app.models import User, Product
+    from app.models import User, Product, Role, Order, OrderItem
     admin = Admin(app, name='Elevate Industries Admin', template_mode='bootstrap3')
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Product, db.session))
+    admin.add_view(ModelView(Role, db.session))
+    admin.add_view(ModelView(Order, db.session))
+    admin.add_view(ModelView(OrderItem, db.session))
+
 
     from app.auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
