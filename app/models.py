@@ -18,7 +18,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True, nullable=True)
     password_hash = db.Column(db.String(200))
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
-    role = db.Column(db.String(80), nullable=False, default='customer')  # Default role is 'customer'
+    role = db.relationship('Role', backref='users')
+
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -28,6 +29,7 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)

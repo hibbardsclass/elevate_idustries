@@ -14,30 +14,39 @@
                     <li><a href="/">Main Home</a></li>
                     <li><a href="{{ url_for('products.home') }}">Product Home</a></li>
                     <li class="dropdown">
-                    <a href="#" class="dropbtn">Our CTE's</a>
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('main.business') }}">Business</a>
-                        <a href="{{ url_for('main.website_design') }}">Website Design</a>
-                        <a href="{{ url_for('main.construction') }}">Construction</a>
-
-
-                    </div>
+                        <a href="#" class="dropbtn">Our CTE's</a>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('main.business') }}">Business</a>
+                            <a href="{{ url_for('main.website_design') }}">Website Design</a>
+                            <a href="{{ url_for('main.construction') }}">Construction</a>
+                        </div>
                     </li>
-
                     <li><a href="{{ url_for('main.about') }}">About Us</a></li>
                     <li><a href="{{ url_for('main.shop') }}">Shop</a></li>
-                    <li><a href="{{ url_for('main.blog') }}">Blog</a></li> <!-- Added Blog link -->
+                    <li><a href="{{ url_for('main.blog') }}">Blog</a></li>
                     <!-- Orders Dropdown Menu -->
                     {% if current_user.is_authenticated %}
-                        <li class="dropdown">
+                         <li class="dropdown">
                             <a href="#" class="dropbtn">Orders</a>
                             <div class="dropdown-content">
                                 <a href="{{ url_for('orders.place_order') }}">Place Order</a>
                                 <a href="{{ url_for('orders.my_orders') }}">My Orders</a>
                             </div>
+                            <!-- Debug URLs -->
+                            <div style="display:none;">
+                                Place Order URL: {{ url_for('orders.place_order') }}<br>
+                                My Orders URL: {{ url_for('orders.my_orders') }}
+                            </div>
                         </li>
-                    <!-- Add Registration/Login Links -->
 
+                        <!-- Add Dashboard Links -->
+                        {% if current_user.role.name == 'admin' %}
+                            <li><a href="{{ url_for('main.admin_dashboard') }}">Admin Dashboard</a></li>
+                        {% elif current_user.role.name == 'seller' %}
+                            <li><a href="{{ url_for('main.seller_dashboard') }}">Seller Dashboard</a></li>
+                        {% elif current_user.role.name == 'customer' %}
+                            <li><a href="{{ url_for('main.customer_dashboard') }}">Customer Dashboard</a></li>
+                        {% endif %}
                         <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('auth.register') }}">Register</a></li>

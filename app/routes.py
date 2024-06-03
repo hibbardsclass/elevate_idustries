@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, current_app as app
+from flask_login import login_required, current_user
+from flask_principal import PermissionDenied
 
 main = Blueprint('main', __name__)
 
@@ -34,3 +36,27 @@ def website_design():
 @main.route('/construction')
 def construction():
     return render_template('construction.html')
+
+# Admin Dashboard
+@main.route('/admin')
+@login_required
+def admin_dashboard():
+    if not app.admin_permission.can():
+        raise PermissionDenied
+    return render_template('admin_dashboard.html')
+
+# Seller Dashboard
+@main.route('/seller')
+@login_required
+def seller_dashboard():
+    if not app.seller_permission.can():
+        raise PermissionDenied
+    return render_template('seller_dashboard.html')
+
+# Customer Dashboard
+@main.route('/customer')
+@login_required
+def customer_dashboard():
+    if not app.customer_permission.can():
+        raise PermissionDenied
+    return render_template('customer_dashboard.html')

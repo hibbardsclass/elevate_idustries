@@ -22,9 +22,10 @@
             routes.py
             __init__.py
             templates/
-                my_orders.html
-                order_detail.html
-                place_order.html
+                orders/
+                    my_orders.html
+                    order_detail.html
+                    place_order.html
             __pycache__/
                 routes.cpython-312.pyc
                 __init__.cpython-312.pyc
@@ -47,12 +48,15 @@
         templates/
             about.html
             add_product.html
+            admin_dashboard.html
             base.html
             blog.html
             business.html
             construction.html
             CTE's.html
+            cusomer_dashboard.html
             index.html
+            seller_dashboard.html
             shop.html
             Sign-in.html
             website_design.html
@@ -60,6 +64,7 @@
                 login.html
                 register.html
         __pycache__/
+            commands.cpython-312.pyc
             models.cpython-312.pyc
             routes.cpython-312.pyc
             __init__.cpython-312.pyc

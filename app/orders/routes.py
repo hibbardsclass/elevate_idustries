@@ -8,6 +8,7 @@ orders = Blueprint('orders', __name__)
 @orders.route('/place_order', methods=['GET', 'POST'])
 @login_required
 def place_order():
+    print("Accessing place_order route")  # Debug print
     if request.method == 'POST':
         try:
             shipping_details = request.form['shipping_details']
@@ -35,6 +36,7 @@ def place_order():
 @orders.route('/order/<int:order_id>')
 @login_required
 def order_detail(order_id):
+    print("Accessing order_detail route")  # Debug print
     order = Order.query.get_or_404(order_id)
     if order.user_id != current_user.id:
         flash('You do not have permission to view this order.', 'error')
@@ -44,5 +46,6 @@ def order_detail(order_id):
 @orders.route('/my_orders')
 @login_required
 def my_orders():
+    print("Accessing my_orders route")  # Debug print
     orders = Order.query.filter_by(user_id=current_user.id).all()
     return render_template('orders/my_orders.html', orders=orders)
